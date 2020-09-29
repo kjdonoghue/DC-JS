@@ -1,0 +1,39 @@
+.enterTask{
+    display: flex;
+    width: 350px;
+    align-items: center;
+
+}
+.enterTask div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 30px;
+    margin: 10px;
+}
+
+.enterTask button{
+    background-color: #33ccff;
+    color: white;
+    border: #33ccff;
+    height: 30px;
+}
+
+.taskItem{
+    background-color: #33ccff;
+    color: white;
+    width: 300px;
+    height: 40px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.taskItem button {
+    background-color: #33ccff;
+    color: white;
+    border: none;
+
+}
