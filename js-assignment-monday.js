@@ -179,7 +179,7 @@ class BankAccount{
         this.balance = 0
         this.status = ""
     }
-    openAccount(amount){
+    open(amount){
         let status = ""
         if (amount >= 100){
             this.status = "Opened"
@@ -234,9 +234,9 @@ class BankAccount{
 let savings = new BankAccount("Milo", "Puppy", "Dog", "savings")
 let checking = new BankAccount("Callie", "Puppy", "Dog", "checking")
 
-console.log(savings.openAccount(100))
-console.log(checking.openAccount(50))
-console.log(checking.openAccount(200))
+console.log(savings.open(100))
+console.log(checking.open(50))
+console.log(checking.open(200))
 console.log(savings.transfer(50, checking))
 
 console.log(`Savings balance is ${savings.balance}`)
