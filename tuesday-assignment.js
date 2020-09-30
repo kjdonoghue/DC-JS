@@ -17,6 +17,7 @@ addTaskButton.addEventListener("click", function() {
     let taskLabel = document.createElement("label")
     taskLabel.innerHTML = enterTaskTextBox.value
     li.appendChild(taskLabel)
+    enterTaskTextBox.value = ""
     
     // create remove button & add to li
     let removeButton = document.createElement("button")
