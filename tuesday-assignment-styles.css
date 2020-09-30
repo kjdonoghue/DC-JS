@@ -1,7 +1,12 @@
+.container{
+    font-family: sans-serif;
+}
+
 .enterTask{
     display: flex;
-    width: 350px;
+    width: 400px;
     align-items: center;
+    
 
 }
 .enterTask div{
@@ -11,11 +16,19 @@
     width: 300px;
     height: 30px;
     margin: 10px;
+    font-size: 18px;
+}
+
+.enterTaskBox{
+    width: 175px;
+    height: 30px; 
+    border-style: solid;
 }
 
 .enterTask button{
     background-color: #33ccff;
     color: white;
+    font-size: 16px;
     border: #33ccff;
     height: 30px;
 }
@@ -23,6 +36,7 @@
 .taskItem{
     background-color: #33ccff;
     color: white;
+    font-size: 18px;
     width: 300px;
     height: 40px;
     margin: 10px;
@@ -34,6 +48,15 @@
 .taskItem button {
     background-color: #33ccff;
     color: white;
+    font-size: 14px;
     border: none;
+    margin: 10px;
 
+}
+
+.taskItem input {
+    background: #33ccff;
+    border:1px solid white ;
+    margin: 10px;
+   
 }
