@@ -3,29 +3,29 @@ let articles = news.articles
 
 function changeNull(value) {
     if (value == null) {
-        var result =  "No value"
+        var result =  "None"
         } else {
-             var result = value
+            var result = value
         }
     return result
 }    
 
-let newsStory = articles.map(function(story) {
-    author = changeNull(story.author)
-    title = changeNull(story.title)
-    description = changeNull(story.description)
-    url = changeNull(story.url)
-    urlToImage = changeNull(story.urlToImage)
-    publishedAt = changeNull(story.publishedAt)
+let newsStory = articles.map((story) => {
+    let author = changeNull(story.author)
+    let title = changeNull(story.title)
+    let description = changeNull(story.description)
+    let url = changeNull(story.url)
+    let urlToImage = changeNull(story.urlToImage)
+    let publishedAt = changeNull(story.publishedAt)
        
     return `<li> 
-    <b> Author: ${author} </b>
-    <p> Title: ${title} </p> 
-    <p> Description: ${description} </p>
-    <a href="${url}">Link to Article</a>
-    <img src="${story.urlToImage}"  style="width:100px;height:100px;">     
-    <p> Published At: ${story.publishedAt} </p> 
-     </li>`
+        <b> Author: ${author} </b>
+        <p> Title: ${title} </p> 
+        <p> Description: ${description} </p>
+        <a href="${url}">Link to Article</a>
+        <img src="${urlToImage}"  style="width:100px;height:100px;">    
+        <p> Published At: ${publishedAt} </p> 
+        </li>`
 })
 
 newsUL.insertAdjacentHTML("beforeend", newsStory.join(""))
