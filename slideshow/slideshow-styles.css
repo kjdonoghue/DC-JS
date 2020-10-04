@@ -1,0 +1,13 @@
+.img {
+    width: 50%;
+    height: 50%;
+
+}
+
+/* // function displaySlideshow() {
+    //     let slide = imageArray.map((poster) => {
+    //         return `<li><img src=${poster.image}></li>`
+    //     })
+    //     slideshowDiv.innerHTML = slide
+    // }
+    // setInterval("displaySlideshow()", 5000) */
