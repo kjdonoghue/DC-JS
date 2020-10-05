@@ -1,0 +1,61 @@
+.heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    
+ 
+}
+h2 {
+    margin: 5px
+}
+
+.featuredMovie{
+    display: flex;
+
+    justify-content: center;
+    margin-bottom: 10px;
+
+}
+
+.featured {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+  }
+
+.movieListingsDiv{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.listing{
+    margin: 10px;
+}
+
+.listing div {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    
+    
+}
+
+.listing img {
+    width: 50%;
+  }
+
+
+@media (min-width: 425px){
+    .movieListDiv {
+        display: flex;
+        
+        
+    }
+}
