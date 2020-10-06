@@ -1,36 +1,40 @@
 let moviesDiv = document.getElementById("moviesDiv")
 let movieInfo = document.getElementById("movieInfo")
 
+function getAllMovies(completion) {
 
-// get initial request for all batman movies
-let request = new XMLHttpRequest()
+    let moviesURL = "http://www.omdbapi.com/?s=batman&apikey=ea631a09"
+    let request = new XMLHttpRequest()
 
-request.addEventListener("load", function() {
-    
-    let results = JSON.parse(this.responseText)
-
-    movieItem = results.Search.map((movie) => { 
-        return `<div onclick="showMovieInfo('${movie.imdbID}')" class ="listing">
-            <div><img src="${movie.Poster}"></div>
-            <div>${movie.Title}</div>
-        </div>`
+    request.addEventListener("load", function() {
+        
+        let movies = JSON.parse(this.responseText)
+        completion(movies)
+        return movies
+        
     })
-    moviesDiv.insertAdjacentHTML("beforeend", movieItem.join(" "))
-    
+    request.open("GET", "http://www.omdbapi.com/?s=batman&apikey=ea631a09")
+    request.send()
+}
+
+function displayMovies(movies) {
+    let movieItem = movies.Search.map((movies) => { 
+            return `<div onclick="showMovieInfo('${movies.imdbID}')" class ="listing">
+                <div><img src="${movies.Poster}"></div>
+                <div>${movies.Title}</div>
+            </div>`
+    })
+        moviesDiv.insertAdjacentHTML("beforeend", movieItem.join(" "))
+
+}
+
+getAllMovies((movies) => {
+    displayMovies(movies)
 })
-
-request.open("Get", "http://www.omdbapi.com/?s=batman&apikey=ea631a09")
-request.send()
-
 
 //function to show addtional details for the selected movie
 function showMovieInfo(imdb) {
-    window.scroll({
-        top: 0, 
-        left: 0, 
-        behavior: 'smooth'
-      })
-
+   
     let url = "http://www.omdbapi.com/?i=" + imdb + "&apikey=ea631a09"
     let request = new XMLHttpRequest()
     
@@ -47,9 +51,12 @@ function showMovieInfo(imdb) {
             </div>`
         })
     
-    request.open("get", url)
+    request.open("GET", url)
     request.send()
-
+    
+    window.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth'
+      })
 }
-
-
