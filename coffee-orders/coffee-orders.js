@@ -54,19 +54,18 @@ loadAllOrders()
 //get email to search for order
 searchButton.addEventListener("click", () => {
     let searchEmail = searchTextBox.value
-    // console.log(searchEmail)
-    searchForOrder(searchEmail)
+    let emailUrl = "https://dc-coffeerun.herokuapp.com/api/coffeeorders/"+ searchEmail +""
+    searchForOrder(emailUrl)
     
     })
 
 
 //locate order    
-function searchForOrder(email) {
-    let url = "https://dc-coffeerun.herokuapp.com/api/coffeeorders/"+ email +""
+function searchForOrder(emailUrl) {
 
     let searchRequest = new XMLHttpRequest() 
     
-    searchRequest.open('GET', url)
+    searchRequest.open('GET', emailUrl)
 
     searchRequest.onload = function() {
         let orderLookup = JSON.parse(this.responseText)
@@ -74,14 +73,17 @@ function searchForOrder(email) {
                 `<div>
                 <p> Coffee Order: ${orderLookup.coffee}</p>
                 <p> Email: ${orderLookup.emailAddress}</p>
-                <button onclick="deleteOrder()">Delete</button>
+                <button onclick="deleteOrder('${emailUrl}')">Delete</button>
                 </div>`
             }
-            // searchResults.insertAdjacentHTML("beforeend", foundOrder.join(" "))
 
     searchRequest.send() 
 }
 
-function deleteOrder() {
-    console.log("delete")
-}    
+function deleteOrder(emailUrl) {
+    let deleteRequest = new XMLHttpRequest() 
+    deleteRequest.open('DELETE', emailUrl)
+    deleteRequest.send()
+    searchResults.innerHTML = ""
+     
+}   
