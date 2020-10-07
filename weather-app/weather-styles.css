@@ -1,0 +1,25 @@
+.header{
+
+}
+
+.searchDiv{
+
+    background-color: #3486eb;
+    color: white;
+}
+
+/* display */
+.detailsDiv{
+    width: 30%;
+    margin: 25px;    
+
+}
+
+.icon {
+    display:flex;
+    justify-content: center;
+}
+
+.results {
+
+}

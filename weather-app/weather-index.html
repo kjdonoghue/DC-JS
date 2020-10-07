@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel ="stylesheet" href="weather-styles.css"/>  
+    </head>
+    <body> 
+        <div class="header">
+            <h1>Weather App</h1>
+        </div> 
+
+        <div class="searchDiv">
+            <label>Search by city</label>
+            <input type="text" id="locationTextBox" placeholder="Enter City Name">
+            <button onclick="getCityLocation()" id="submitButton">Submit</button> 
+            <label> or search by</label>
+            <button onclick="getGeoLocation()">Current Location</button> <div id="x"></div>
+        </div>
+        
+        
+        <div id="displayWeatherDiv" class="displayContainer">
+
+        </div>
+     
+
+        <script src="weather-app.js"> </script>
+    </body>
+</html>
