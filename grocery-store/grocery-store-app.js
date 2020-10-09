@@ -45,7 +45,7 @@ function listAllStores() {
                 `<li> 
                     <div>${store.name} - ${store.city}, ${store.state}<div>
                     <div>${store.items}</div>
-                    <input type="text" id="addItemTB" placeholder="Enter Item">
+                    <input type="text" id="addItemTB${doc.id}" placeholder="Enter Item">
                     <button onclick="addItem('${doc.id}')">Add Item</button>
                     <button onclick="deleteStore('${doc.id}')">Delete Store</button>               
                 </li>`
@@ -57,6 +57,7 @@ function listAllStores() {
 listAllStores()
 
 
+
 function deleteStore(id) {
     db.collection("stores").doc(id).delete().then(function() {
         listAllStores()
@@ -66,8 +67,9 @@ function deleteStore(id) {
 }
 
 function addItem(id) {
-    let addItemTB = document.getElementById("addItemTB")
+    let addItemTB = document.getElementById('addItemTB'+id)
     let newItem = addItemTB.value
+    console.log(addItemTB.value)
 
     console.log(newItem)
     
@@ -76,4 +78,5 @@ function addItem(id) {
     storeRef.update({
     items: firebase.firestore.FieldValue.arrayUnion(newItem)
     })
+    listAllStores()
 }
